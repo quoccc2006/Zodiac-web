@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cung Hoàng Đạo - Zodiac Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌟 Cung Hoàng Đạo 🌟</h1>
+            <p class="subtitle">Khám phá bí mật của các chòm sao</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="zodiac-list">12 Cung Hoàng Đạo</button>
+            <button class="tab-btn" data-tab="lucky-color">Màu May Mắn</button>
+            <button class="tab-btn" data-tab="messages">Thông Điệp</button>
+            <button class="tab-btn" data-tab="compatibility">Tương Hợp</button>
+        </nav>
+
+        <!-- Tab Content -->
+        <main class="content">
+            <!-- Tab 1: 12 Zodiac Signs -->
+            <section id="zodiac-list" class="tab-content active">
+                <h2>12 Cung Hoàng Đạo</h2>
+                <div id="zodiac-cards" class="zodiac-grid"></div>
+            </section>
+
+            <!-- Tab 2: Lucky Color -->
+            <section id="lucky-color" class="tab-content">
+                <h2>Màu Sắc May Mắn Hôm Nay</h2>
+                <div class="input-group">
+                    <label>Chọn cung hoàng đạo của bạn:</label>
+                    <select id="lucky-color-select">
+                        <option value="">-- Chọn cung --</option>
+                    </select>
+                </div>
+                <div id="lucky-color-result" class="result-box"></div>
+            </section>
+
+            <!-- Tab 3: Messages CRUD -->
+            <section id="messages" class="tab-content">
+                <h2>Quản Lý Thông Điệp</h2>
+                <div class="message-controls">
+                    <div class="input-group">
+                        <label>Chọn cung hoàng đạo:</label>
+                        <select id="message-zodiac-select">
+                            <option value="">-- Chọn cung --</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Nội dung thông điệp:</label>
+                        <textarea id="message-input" rows="4" placeholder="Nhập thông điệp của bạn..."></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button id="add-message-btn" class="btn btn-primary">Thêm Thông Điệp</button>
+                        <button id="clear-message-btn" class="btn btn-secondary">Xóa Form</button>
+                    </div>
+                </div>
+                <div id="messages-list" class="messages-container"></div>
+            </section>
+
+            <!-- Tab 4: Compatibility Checker -->
+            <section id="compatibility" class="tab-content">
+                <h2>So Sánh Tương Hợp</h2>
+                <div class="compatibility-form">
+                    <div class="person-input">
+                        <h3>Người thứ nhất</h3>
+                        <div class="input-group">
+                            <label>Họ tên:</label>
+                            <input type="text" id="person1-name" placeholder="Nhập họ tên">
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Ngày:</label>
+                                <input type="number" id="person1-day" min="1" max="31" placeholder="DD">
+                            </div>
+                            <div class="input-group">
+                                <label>Tháng:</label>
+                                <input type="number" id="person1-month" min="1" max="12" placeholder="MM">
+                            </div>
+                            <div class="input-group">
+                                <label>Năm:</label>
+                                <input type="number" id="person1-year" min="1900" max="2100" placeholder="YYYY">
+                            </div>
+                        </div>
+                        <button id="save-person1-btn" class="btn btn-primary">Lưu Người 1</button>
+                    </div>
+
+                    <div class="person-input">
+                        <h3>Người thứ hai</h3>
+                        <div class="input-group">
+                            <label>Họ tên:</label>
+                            <input type="text" id="person2-name" placeholder="Nhập họ tên">
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Ngày:</label>
+                                <input type="number" id="person2-day" min="1" max="31" placeholder="DD">
+                            </div>
+                            <div class="input-group">
+                                <label>Tháng:</label>
+                                <input type="number" id="person2-month" min="1" max="12" placeholder="MM">
+                            </div>
+                            <div class="input-group">
+                                <label>Năm:</label>
+                                <input type="number" id="person2-year" min="1900" max="2100" placeholder="YYYY">
+                            </div>
+                        </div>
+                        <button id="save-person2-btn" class="btn btn-primary">Lưu Người 2</button>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="check-compatibility-btn" class="btn btn-success">Kiểm Tra Tương Hợp</button>
+                </div>
+                <div id="compatibility-result" class="result-box"></div>
+            </section>
+        </main>
+
+        <!-- Notification Toast -->
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
