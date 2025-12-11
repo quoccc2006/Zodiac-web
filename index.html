@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cung Hoàng Đạo - Zodiac</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <header>
+        <h1>✨ Cung Hoàng Đạo ✨</h1>
+        <p class="subtitle">Khám phá thế giới chiêm tinh học</p>
+    </header>
+
+    <nav>
+        <a href="#zodiac-signs" class="nav-link">12 Cung</a>
+        <a href="#lucky-colors" class="nav-link">Màu May Mắn</a>
+        <a href="#messages" class="nav-link">Thông Điệp</a>
+        <a href="#find-zodiac" class="nav-link">Tìm Cung</a>
+        <a href="#compatibility" class="nav-link">Tương Hợp</a>
+    </nav>
+
+    <main class="container">
+        <!-- Section 1: 12 Cung Hoàng Đạo -->
+        <section id="zodiac-signs" class="section">
+            <h2 class="section-title">12 Cung Hoàng Đạo</h2>
+            <div id="zodiac-cards" class="zodiac-grid"></div>
+        </section>
+
+        <!-- Section 2: Màu May Mắn Trong Ngày -->
+        <section id="lucky-colors" class="section">
+            <h2 class="section-title">Màu May Mắn Hôm Nay</h2>
+            <p class="date-display">Ngày: <span id="current-date"></span></p>
+            <div id="lucky-colors-grid" class="lucky-colors-grid"></div>
+        </section>
+
+        <!-- Section 3: Quản Lý Thông Điệp -->
+        <section id="messages" class="section">
+            <h2 class="section-title">Thông Điệp Cung Hoàng Đạo</h2>
+            <div class="message-form-container">
+                <h3>Thêm Thông Điệp Mới</h3>
+                <form id="message-form">
+                    <select id="message-zodiac" required>
+                        <option value="">Chọn cung hoàng đạo</option>
+                    </select>
+                    <textarea id="message-text" placeholder="Nhập thông điệp..." required></textarea>
+                    <button type="submit" class="btn btn-primary">
+                        <span id="form-button-text">Thêm Thông Điệp</span>
+                    </button>
+                    <button type="button" id="cancel-edit" class="btn btn-secondary" style="display: none;">Hủy</button>
+                </form>
+            </div>
+            <div id="messages-list" class="messages-list"></div>
+        </section>
+
+        <!-- Section 4: Tìm Cung Hoàng Đạo -->
+        <section id="find-zodiac" class="section">
+            <h2 class="section-title">Tìm Cung Hoàng Đạo Của Bạn</h2>
+            <div class="find-zodiac-container">
+                <form id="find-zodiac-form">
+                    <input type="text" id="find-name" placeholder="Họ và tên" required>
+                    <input type="number" id="find-day" placeholder="Ngày sinh (1-31)" min="1" max="31" required>
+                    <input type="number" id="find-month" placeholder="Tháng sinh (1-12)" min="1" max="12" required>
+                    <button type="submit" class="btn btn-primary">Tìm Cung</button>
+                </form>
+                <div id="find-zodiac-result" class="zodiac-result"></div>
+            </div>
+        </section>
+
+        <!-- Section 5: So Sánh Tương Hợp -->
+        <section id="compatibility" class="section">
+            <h2 class="section-title">So Sánh Tương Hợp</h2>
+            <div class="compatibility-container">
+                <form id="compatibility-form">
+                    <div class="person-input">
+                        <h3>👤 Người thứ nhất</h3>
+                        <input type="text" id="person1-name" placeholder="Họ và tên" required>
+                        <input type="number" id="person1-day" placeholder="Ngày sinh (1-31)" min="1" max="31" required>
+                        <input type="number" id="person1-month" placeholder="Tháng sinh (1-12)" min="1" max="12" required>
+                    </div>
+                    <div class="person-input">
+                        <h3>👤 Người thứ hai</h3>
+                        <input type="text" id="person2-name" placeholder="Họ và tên" required>
+                        <input type="number" id="person2-day" placeholder="Ngày sinh (1-31)" min="1" max="31" required>
+                        <input type="number" id="person2-month" placeholder="Tháng sinh (1-12)" min="1" max="12" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">Xem Độ Tương Hợp</button>
+                </form>
+                <div id="compatibility-result" class="compatibility-result"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Cung Hoàng Đạo Website. Made with ❤️</p>
+    </footer>
+
+    <!-- Modal for Zodiac Details -->
+    <div id="zodiac-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
