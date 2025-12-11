@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website Cung Hoàng Đạo - Khám phá vận mệnh của bạn">
+    <title>Cung Hoàng Đạo - Zodiac Web</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">✨ Cung Hoàng Đạo</div>
+            <div class="user-status">
+                <div class="user-status-item">
+                    <strong>Người 1:</strong> <span id="user1-info">Chưa nhập</span>
+                </div>
+                <div class="user-status-item">
+                    <strong>Người 2:</strong> <span id="user2-info">Chưa nhập</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-item active" data-view="home">🏠 Trang chủ</li>
+                <li class="nav-item" data-view="user1">👤 Nhập người 1</li>
+                <li class="nav-item" data-view="user2">👥 Nhập người 2</li>
+                <li class="nav-item" data-view="zodiac">⭐ Xem cung</li>
+                <li class="nav-item" data-view="messages">💌 Xem thông điệp</li>
+                <li class="nav-item" data-view="manage">⚙️ Quản lý thông điệp</li>
+                <li class="nav-item" data-view="compatibility">💕 Tương hợp</li>
+                <li class="nav-item" data-view="lucky">🎨 Màu may mắn</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Home View -->
+        <div id="home-view" class="view active home-view">
+            <div class="card">
+                <h1 class="welcome-title">Chào mừng đến với Cung Hoàng Đạo</h1>
+                <p class="welcome-description">
+                    Khám phá bí mật về cung hoàng đạo của bạn, xem thông điệp hàng ngày, 
+                    và tìm hiểu về độ tương hợp với người thương yêu.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⭐</div>
+                        <h3>Xác định cung</h3>
+                        <p>Nhập ngày sinh để biết cung hoàng đạo của bạn</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💌</div>
+                        <h3>Thông điệp</h3>
+                        <p>Xem thông điệp may mắn cho cung của bạn</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💕</div>
+                        <h3>Tương hợp</h3>
+                        <p>So sánh độ tương hợp giữa hai cung</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Màu may mắn</h3>
+                        <p>Khám phá màu sắc may mắn của bạn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User 1 Input View - Module 1 -->
+        <div id="user1-view" class="view">
+            <div class="card">
+                <h2>📝 Nhập thông tin người dùng 1</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--border-color);">
+                    Theo DFD 1: Quy trình nhập ngày tháng năm sinh
+                </p>
+                
+                <form id="user1-form" onsubmit="event.preventDefault(); app.submitUser1();">
+                    <div class="form-group">
+                        <label for="user1-name">Họ và tên:</label>
+                        <input type="text" id="user1-name" class="form-control" placeholder="Nhập họ tên" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="user1-day">Ngày sinh (1-31):</label>
+                            <input type="number" id="user1-day" class="form-control" min="1" max="31" placeholder="Ngày" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="user1-month">Tháng sinh (1-12):</label>
+                            <input type="number" id="user1-month" class="form-control" min="1" max="12" placeholder="Tháng" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="user1-year">Năm sinh (tùy chọn):</label>
+                            <input type="number" id="user1-year" class="form-control" min="1900" max="2100" placeholder="Năm">
+                        </div>
+                    </div>
+                    
+                    <div id="user1-notification"></div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">
+                        Lưu thông tin
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- User 2 Input View - Module 3 -->
+        <div id="user2-view" class="view">
+            <div class="card">
+                <h2>📝 Nhập thông tin người dùng 2</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--border-color);">
+                    Theo DFD 3: Quy trình nhập thông tin người dùng thứ 2
+                </p>
+                
+                <form id="user2-form" onsubmit="event.preventDefault(); app.submitUser2();">
+                    <div class="form-group">
+                        <label for="user2-name">Họ và tên:</label>
+                        <input type="text" id="user2-name" class="form-control" placeholder="Nhập họ tên" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="user2-day">Ngày sinh (1-31):</label>
+                            <input type="number" id="user2-day" class="form-control" min="1" max="31" placeholder="Ngày" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="user2-month">Tháng sinh (1-12):</label>
+                            <input type="number" id="user2-month" class="form-control" min="1" max="12" placeholder="Tháng" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="user2-year">Năm sinh (tùy chọn):</label>
+                            <input type="number" id="user2-year" class="form-control" min="1900" max="2100" placeholder="Năm">
+                        </div>
+                    </div>
+                    
+                    <div id="user2-notification"></div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">
+                        Lưu thông tin
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Zodiac View - Module 2 -->
+        <div id="zodiac-view" class="view">
+            <div class="card">
+                <h2>⭐ Xác định cung hoàng đạo</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--border-color);">
+                    Theo DFD 2: Quy trình xác định cung hoàng đạo
+                </p>
+                <div id="zodiac-result"></div>
+            </div>
+        </div>
+
+        <!-- Messages View - Module 4 -->
+        <div id="messages-view" class="view">
+            <div class="card">
+                <h2>💌 Xem thông điệp cung hoàng đạo</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--border-color);">
+                    Theo DFD 4: Quy trình xem thông điệp cung hoàng đạo
+                </p>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="message-day">Ngày sinh (1-31):</label>
+                        <input type="number" id="message-day" class="form-control" min="1" max="31" placeholder="Ngày">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message-month">Tháng sinh (1-12):</label>
+                        <input type="number" id="message-month" class="form-control" min="1" max="12" placeholder="Tháng">
+                    </div>
+                </div>
+                
+                <button onclick="app.viewMessagesByZodiac()" class="btn-primary" style="width: 100%; margin-bottom: 30px;">
+                    Xem thông điệp
+                </button>
+                
+                <div id="message-result"></div>
+            </div>
+        </div>
+
+        <!-- Message Management View - Module 5 -->
+        <div id="manage-view" class="view">
+            <div class="card">
+                <h2>⚙️ Quản lý thông điệp (CRUD)</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--border-color);">
+                    Thêm, sửa, xóa thông điệp cho các cung hoàng đạo
+                </p>
+                
+                <div id="manage-zodiac-selector"></div>
+                
+                <div id="manage-result" style="margin-top: 30px;"></div>
+            </div>
+        </div>
+
+        <!-- Compatibility View - Module 6 -->
+        <div id="compatibility-view" class="view">
+            <div class="card">
+                <h2>💕 So sánh tương hợp</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--border-color);">
+                    Xem độ tương hợp giữa hai cung hoàng đạo
+                </p>
+                <div id="compatibility-result"></div>
+            </div>
+        </div>
+
+        <!-- Lucky Colors View - Module 7 -->
+        <div id="lucky-view" class="view">
+            <div class="card">
+                <h2>🎨 Màu sắc may mắn</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--border-color);">
+                    Khám phá màu sắc may mắn cho cung hoàng đạo
+                </p>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lucky-day">Ngày sinh (1-31):</label>
+                        <input type="number" id="lucky-day" class="form-control" min="1" max="31" placeholder="Ngày">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lucky-month">Tháng sinh (1-12):</label>
+                        <input type="number" id="lucky-month" class="form-control" min="1" max="12" placeholder="Tháng">
+                    </div>
+                </div>
+                
+                <button onclick="app.viewLuckyColors()" class="btn-primary" style="width: 100%; margin-bottom: 30px;">
+                    Xem màu may mắn
+                </button>
+                
+                <div id="lucky-result"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Cung Hoàng Đạo. Được xây dựng theo DFD.</p>
+            <button onclick="app.clearAllData()" class="btn-secondary" style="margin-top: 15px;">
+                🗑️ Xóa tất cả dữ liệu
+            </button>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files - Load theo đúng thứ tự dependencies -->
+    <script src="js/dataStore.js"></script>
+    <script src="js/dateValidator.js"></script>
+    <script src="js/requestAnalyzer.js"></script>
+    <script src="js/zodiacIdentifier.js"></script>
+    <script src="js/messageProcessor.js"></script>
+    <script src="js/displayManager.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
