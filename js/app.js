@@ -459,11 +459,10 @@ function getZodiacSign(day, month) {
         const start = zodiac.startDate;
         const end = zodiac.endDate;
         
-        // Handle year-crossing signs (Capricorn)
+        // Handle year-crossing signs (Capricorn: Dec 22 - Jan 19)
         if (start.month > end.month) {
             if ((month === start.month && day >= start.day) || 
-                (month === end.month && day <= end.day) ||
-                month > start.month || month < end.month) {
+                (month === end.month && day <= end.day)) {
                 return zodiac;
             }
         } else {
@@ -487,6 +486,13 @@ function handleFindZodiac(e) {
     
     if (!name || !day || !month || day < 1 || day > 31 || month < 1 || month > 12) {
         alert('Vui lòng nhập thông tin hợp lệ!');
+        return;
+    }
+    
+    // Validate actual calendar dates
+    const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (day > daysInMonth[month - 1]) {
+        alert('Ngày không hợp lệ cho tháng này!');
         return;
     }
     
@@ -521,6 +527,13 @@ function handleCompatibility(e) {
     
     if (!person1Name || !person1Day || !person1Month || !person2Name || !person2Day || !person2Month) {
         alert('Vui lòng nhập đầy đủ thông tin cho cả hai người!');
+        return;
+    }
+    
+    // Validate dates
+    const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (person1Day > daysInMonth[person1Month - 1] || person2Day > daysInMonth[person2Month - 1]) {
+        alert('Ngày sinh không hợp lệ!');
         return;
     }
     
