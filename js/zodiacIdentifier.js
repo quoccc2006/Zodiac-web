@@ -19,7 +19,7 @@ class ZodiacIdentifier {
 
         // Duyệt qua tất cả các cung trong Kho CHĐ
         for (const [key, zodiac] of Object.entries(DataStore.zodiacData)) {
-            if (this.isDateInZodiacRange(day, month, zodiac)) {
+            if (ZodiacIdentifier.isDateInZodiacRange(day, month, zodiac)) {
                 return {
                     key: key,
                     ...zodiac
